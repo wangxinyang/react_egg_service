@@ -18,7 +18,7 @@ class HomeController extends Controller {
   }
 
   async getArticleById() {
-    let id = this.query.id;
+    let id = this.ctx.params.id;
     let sql =
       "select a.id, b.typeName, a.title, a.articleCointent, a.introduce, FROM_UNIXTIME(a.addTime, '%Y-%m-%d') as addTime, a.viewCount from article a, article_type b where a.typeId = b.id and a.id=" +
       id;
